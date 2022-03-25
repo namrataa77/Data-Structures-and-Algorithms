@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    string path = "/home/./a//b//.././";
+    string path = "/../";
    
         vector<string> s;
          
@@ -24,9 +24,9 @@ int main()
 
                 }
             }   
-        for(auto x: s){
-            cout << x << " ";
-        }
+        // for(auto x: s){
+        //     cout << x << " ";
+        // }
         
         stack<string> stk;
         int flag  = 0;
@@ -39,10 +39,15 @@ int main()
             }
             else stk.push(x);
         }
+        string s1 = "";
         while(!stk.empty()){
-            cout<< stk.top() << " ";
+            //cout<< stk.top() << " ";
+            string dup = stk.top();
+            s1 = "/"+dup+s1;
             stk.pop();
         }
+        if(s1.size()==0)s1="/";
+        cout<<s1<<" ";
         
         // if( stk.empty()) {
         //     flag = 1;
@@ -53,16 +58,16 @@ int main()
         
         
         
-         string ans = "";
+        //  string ans = "";
         
-        while(!stk.empty()){
-            if( ans.empty())
-                ans = ans + "/";
-            ans = ans + stk.top();
-            stk.pop();
-        }
+        // while(!stk.empty()){
+        //     if( ans.empty())
+        //         ans = ans + "/";
+        //     ans = ans + stk.top();
+        //     stk.pop();
+        // }
 
-        cout << ans;
+        //cout << ans;
 
         
  
